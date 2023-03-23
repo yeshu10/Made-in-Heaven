@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	$message='';
+	if(isset($_SESSION['email_alert']))
+	{
+	$message='Email already exists';
+    }
+	?>
 <html>
 	<head>
 		<title>Register</title>
@@ -12,12 +20,14 @@
 	        background-image:url(Register.JPG);
 			background-repeat: no-repeat;
 			background-size: 100% 100%;
-	   }
+	        }
 	</style>
 	</head>
 	<body>
 	<div style="width:400px; margin-top:6%;margin-left:7%;border:3px solid black;padding:15px;">
-		<form action="save.php" method="POST" autocomplete="off">
+	<div><h2> <?php echo $message; ?></h2>	</div> 
+	
+	<form action="save.php" method="POST" autocomplete="off">
 			<input type="text" name="fname" placeholder="First Name" required class="form-control">
 			<br>
 			<input type="text" name="lname" placeholder="Last Name" required class="form-control">
